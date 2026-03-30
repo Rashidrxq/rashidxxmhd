@@ -1,0 +1,50 @@
+[
+    {
+        "id": "nexora-ai",
+        "title": "Nexora AI",
+        "category": "Artificial Intelligence",
+        "description": "A highly specialized workflow automation interface leveraging large language models to streamline enterprise operations and scale data processing.",
+        "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop",
+        "year": "2024",
+        "role": "Lead Engineer",
+        "techStack": ["Next.js", "Python", "OpenAI", "TailwindCSS"],
+        "challenge": "Enterprise clients were spending manually over 40 hours a week sorting through unstructured data, resulting in massive operational bottlenecks. Existing rigid systems lacked the capability to understand nuanced context, leading to high error rates and lost revenue opportunities.",
+        "solution": "Engineered a robust LLM-powered pipeline wrapped in an ultra-fast Next.js interface. The system intelligently reads, categorizes, and executes actions on incoming data streams, reducing manual processing time by 94% while remaining incredibly intuitive for non-technical users to query.",
+        "gallery": [
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+        ]
+    },
+    {
+        "id": "aura-finance",
+        "title": "Aura Finance",
+        "category": "Fintech Dashboard",
+        "description": "A high-performance algorithmic trading dashboard engineered for low-latency real-time data visualization and modern minimalist UX.",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+        "year": "2023",
+        "role": "Frontend Architect",
+        "techStack": ["React", "TypeScript", "D3.js", "WebSockets"],
+        "challenge": "Algorithmic traders require sub-millisecond updates without the browser freezing. The client's original React application was suffering from severe re-render thrashing and memory leaks when processing millions of live ticker events per second.",
+        "solution": "Completely rewrote the rendering pipeline utilizing WebGL and deeply optimized Canvas APIs to handle immense data velocity. A strict separation of state ensured the UI remained buttery smooth at 120fps, housed in an aggressively minimalist layout that removed cognitive overload.",
+        "gallery": [
+            "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+        ]
+    },
+    {
+        "id": "omni-commerce",
+        "title": "Omni Commerce",
+        "category": "Headless E-Commerce",
+        "description": "A scalable, composable commerce architecture built on Next.js guaranteeing sub-second load times globally and a flawless checkout flow.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        "year": "2023",
+        "role": "Fullstack Developer",
+        "techStack": ["Next.js", "Shopify Plus", "GraphQL", "Framer Motion"],
+        "challenge": "A rapidly growing fashion brand was losing 30% of their mobile conversions due to a clunky, monolithic Shopify theme that took 6 seconds to paint. The design team also wanted high-end editorial animations that traditional themes couldn't smoothly support.",
+        "solution": "Decoupled the storefront to a custom Next.js application fetching data via Shopify Storefront API. Implementing advanced caching, image optimization, and rigorous Framer Motion page transitions resulted in a 0.8s load time and a 45% increase in conversion rates.",
+        "gallery": [
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop"
+        ]
+    }
+]
