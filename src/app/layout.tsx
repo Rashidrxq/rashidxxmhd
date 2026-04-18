@@ -18,25 +18,56 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rashidxxmhd.vercel.app'),
   title: {
-    default: "Muhammed Rashid P P | Frontend Developer",
+    default: "Muhammed Rashid P P | Frontend Developer Kerala",
     template: "%s | Muhammed Rashid P P",
   },
-  description: "Portfolio of Muhammed Rashid P P, a passionate Frontend & Software Developer. Discover my latest projects, skills, and experiences. Rashid Developer.",
-  keywords: ["Muhammed Rashid P P", "Rashid Developer", "Frontend Developer", "Software Developer", "Web Developer", "React", "Next.js", "Portfolio"],
+  description:
+    "Muhammed Rashid P P is a Frontend Developer from Kerala specializing in React, Next.js, and AI-based applications. Explore projects, skills, and portfolio.",
+  verification: {
+    google: "uoqo49KmDxvlyOjr3OSgum2iXh6kLKaLJ_MUrRFz2Ho",
+  },
+  keywords: [
+    "Muhammed Rashid P P frontend developer",
+    "Rashid developer Kerala",
+    "React developer India",
+    "Next.js developer Kozhikode",
+    "Software developer portfolio Rashid"
+  ],
+
   authors: [{ name: "Muhammed Rashid P P" }],
   creator: "Muhammed Rashid P P",
+
+  alternates: {
+    canonical: "https://rashidxxmhd.vercel.app/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: "https://rashidxxmhd.vercel.app",
     title: "Muhammed Rashid P P | Frontend Developer",
-    description: "Portfolio of Muhammed Rashid P P, a passionate Frontend & Software Developer. Discover my latest projects, skills, and experiences.",
-    siteName: "Muhammed Rashid P P Portfolio",
+    description:
+      "Portfolio of Muhammed Rashid P P, a frontend developer from Kerala.",
+    siteName: "Muhammed Rashid Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Muhammed Rashid Portfolio",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Muhammed Rashid P P | Frontend Developer",
-    description: "Portfolio of Muhammed Rashid P P, a passionate Frontend & Software Developer.",
+    description: "Frontend Developer Portfolio",
+    images: ["/og-image.png"],
   },
 };
 
