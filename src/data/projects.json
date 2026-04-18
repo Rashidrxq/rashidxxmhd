@@ -1,50 +1,50 @@
 [
     {
-        "id": "nexora-ai",
-        "title": "Nexora AI",
-        "category": "Artificial Intelligence",
-        "description": "A highly specialized workflow automation interface leveraging large language models to streamline enterprise operations and scale data processing.",
-        "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop",
+        "id": "ucl-prediction-ai",
+        "title": "UCL Match Prediction AI",
+        "category": "Machine Learning / Analytics",
+        "description": "An advanced, real-world AI system combining sports analytics, machine learning, and full-stack development to deliver highly intelligent football predictions.",
+        "image": "https://images.unsplash.com/photo-1518605363189-8dce282672e0?q=80&w=2940&auto=format&fit=crop",
         "year": "2024",
-        "role": "Lead Engineer",
-        "techStack": ["Next.js", "Python", "OpenAI", "TailwindCSS"],
-        "challenge": "Enterprise clients were spending manually over 40 hours a week sorting through unstructured data, resulting in massive operational bottlenecks. Existing rigid systems lacked the capability to understand nuanced context, leading to high error rates and lost revenue opportunities.",
-        "solution": "Engineered a robust LLM-powered pipeline wrapped in an ultra-fast Next.js interface. The system intelligently reads, categorizes, and executes actions on incoming data streams, reducing manual processing time by 94% while remaining incredibly intuitive for non-technical users to query.",
+        "role": "Machine Learning Engineer",
+        "techStack": ["Python", "Scikit-Learn", "Pandas", "Full-Stack Backend"],
+        "challenge": "Sports prediction models typically suffer from high variance and data leakage, leading to inaccurate real-world forecasting. Existing data was unstructured and lacked sophisticated feature engineering like rolling performance metrics.",
+        "solution": "Developed a robust machine learning pipeline implementing cumulative Elo ratings and advanced feature engineering. Completely eliminated data leakage by enforcing strict chronological data splitting, resulting in a highly accurate predictive scoring model mapped into a clean full-stack interface.",
         "gallery": [
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1434648957308-5e6a85969ce8?q=80&w=2874&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
         ]
     },
     {
-        "id": "aura-finance",
-        "title": "Aura Finance",
-        "category": "Fintech Dashboard",
-        "description": "A high-performance algorithmic trading dashboard engineered for low-latency real-time data visualization and modern minimalist UX.",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+        "id": "ai-resume-screener",
+        "title": "AI Resume Screener",
+        "category": "Full-Stack NLP",
+        "description": "A high-performance web application engineered to instantly calculate applicant compatibility scores by analyzing resumes against target job descriptions using Natural Language Processing.",
+        "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2944&auto=format&fit=crop",
         "year": "2023",
-        "role": "Frontend Architect",
-        "techStack": ["React", "TypeScript", "D3.js", "WebSockets"],
-        "challenge": "Algorithmic traders require sub-millisecond updates without the browser freezing. The client's original React application was suffering from severe re-render thrashing and memory leaks when processing millions of live ticker events per second.",
-        "solution": "Completely rewrote the rendering pipeline utilizing WebGL and deeply optimized Canvas APIs to handle immense data velocity. A strict separation of state ensured the UI remained buttery smooth at 120fps, housed in an aggressively minimalist layout that removed cognitive overload.",
+        "role": "Full-Stack Developer",
+        "techStack": ["Python", "NLP Libraries", "React", "Next.js"],
+        "challenge": "Recruiters spend massive amounts of manual time scanning PDFs to find basic skill overlaps. Traditional Applicant Tracking Systems use rigid keyword matching that fails to understand the contextual meaning of candidate experience.",
+        "solution": "Built a custom Natural Language Processing extraction engine to semantically map PDF content to job requirements. Wrapped this complex processing into a sleek, immediately accessible web dashboard that delivers split-second compatibility scores and actionable insights.",
         "gallery": [
             "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
         ]
     },
     {
-        "id": "omni-commerce",
-        "title": "Omni Commerce",
-        "category": "Headless E-Commerce",
-        "description": "A scalable, composable commerce architecture built on Next.js guaranteeing sub-second load times globally and a flawless checkout flow.",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        "id": "gate2027-platform",
+        "title": "GATE 2027 Portal",
+        "category": "EdTech Platform",
+        "description": "A highly functional community-driven learning platform designed for engineering students, centralized around curated study materials and knowledge sharing.",
+        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2940&auto=format&fit=crop",
         "year": "2023",
-        "role": "Fullstack Developer",
-        "techStack": ["Next.js", "Shopify Plus", "GraphQL", "Framer Motion"],
-        "challenge": "A rapidly growing fashion brand was losing 30% of their mobile conversions due to a clunky, monolithic Shopify theme that took 6 seconds to paint. The design team also wanted high-end editorial animations that traditional themes couldn't smoothly support.",
-        "solution": "Decoupled the storefront to a custom Next.js application fetching data via Shopify Storefront API. Implementing advanced caching, image optimization, and rigorous Framer Motion page transitions resulted in a 0.8s load time and a 45% increase in conversion rates.",
+        "role": "Frontend Architect",
+        "techStack": ["JavaScript", "React", "Node.js", "Express"],
+        "challenge": "Serious aspiring engineers lacked a centralized, high-performance portal to share curated notes and directly interact on tough numerical problems without bloated UI distractions.",
+        "solution": "Architected a blisteringly fast React-based SPA that prioritizes information density and reading comfort. Integrated a scalable backend to handle thousands of concurrent community uploads, creating an uninterrupted flow and premium user experience for students.",
         "gallery": [
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
         ]
     }
 ]

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { login } from "@/app/actions/auth";
 
 export default function Hero() {
     const router = useRouter();
@@ -35,7 +37,15 @@ export default function Hero() {
 
             {/* Top Header */}
             <header className="absolute top-0 left-0 w-full flex justify-between items-center px-6 py-8 md:px-12 z-20 text-white">
-                <div className="text-xl md:text-2xl font-medium tracking-tight">Rashid<span className="hidden md:inline"> Developer</span></div>
+                <Link href="/" className="hover:opacity-75 transition-opacity">
+                    <Image 
+                        src="/logo.png" 
+                        alt="Rashid Software Dev" 
+                        width={80} 
+                        height={80} 
+                        className="w-16 h-16 md:w-20 md:h-20 object-contain mix-blend-screen" 
+                    />
+                </Link>
 
                 <button className={`flex items-center gap-3 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase hover:opacity-75 transition-all duration-700 ${isMenuOpen ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"}`}>
                     <svg
@@ -88,8 +98,8 @@ export default function Hero() {
                             <a href="#" className="hover:text-white transition-colors">Showroom</a>
                         </div>
                         <div className="flex flex-col items-end gap-1 md:gap-2 font-light">
-                            <a href="tel:02081567290" className="hover:text-white transition-colors">+</a>
-                            <a href="mailto:sales@fluid.glass" className="hover:text-white transition-colors">sales@fluid.glass</a>
+                            <a href="tel:+919745393044" className="hover:text-white transition-colors">+91 97453 93044</a>
+                            <a href="mailto:rashid.mhd.pp@gmail.com" className="hover:text-white transition-colors">rashid.mhd.pp@gmail.com</a>
                         </div>
                     </div>
 
@@ -175,17 +185,16 @@ export default function Hero() {
 
                     <form 
                         className="flex flex-col gap-6" 
-                        onSubmit={(e) => { 
+                        onSubmit={async (e) => { 
                             e.preventDefault(); 
-                            const target = e.target as typeof e.target & {
-                                username: { value: string };
-                                password: { value: string };
-                            };
-                            if ((target.username.value === "admin" || target.username.value === "rashixxmhd") && target.password.value === "admin123") {
+                            const formData = new FormData(e.currentTarget);
+                            const res = await login(formData);
+                            
+                            if (res.success) {
                                 setIsAdminOpen(false);
                                 router.push("/admin");
                             } else {
-                                alert("Invalid Credentials");
+                                alert("Invalid Credentials!");
                             }
                         }}
                     >
