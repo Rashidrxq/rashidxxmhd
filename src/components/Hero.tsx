@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Hero() {
     const router = useRouter();
@@ -22,17 +23,19 @@ export default function Hero() {
         <section className="relative w-full h-screen overflow-hidden font-sans bg-black">
             {/* Background Image & Overlay */}
             <div className={`absolute inset-0 z-0 bg-black transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMenuOpen ? "scale-105" : "scale-100"}`}>
-                <img
+                <Image
                     src="https://i.pinimg.com/736x/2e/2e/93/2e2e93eef3e68b0b876169cf709584e1.jpg"
-                    alt="Dark aesthetic background"
-                    className="w-full h-full object-cover opacity-60"
+                    alt="Muhammed Rashid P P - Frontend Developer Background"
+                    fill
+                    priority
+                    className="object-cover opacity-60"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80" />
             </div>
 
             {/* Top Header */}
             <header className="absolute top-0 left-0 w-full flex justify-between items-center px-6 py-8 md:px-12 z-20 text-white">
-                <div className="text-xl md:text-2xl font-medium tracking-tight">Rashid</div>
+                <div className="text-xl md:text-2xl font-medium tracking-tight">Rashid<span className="hidden md:inline"> Developer</span></div>
 
                 <button className={`flex items-center gap-3 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase hover:opacity-75 transition-all duration-700 ${isMenuOpen ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"}`}>
                     <svg
@@ -48,8 +51,9 @@ export default function Hero() {
 
             {/* Main Center Typography */}
             <div className={`relative z-10 flex items-center justify-center w-full h-full px-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMenuOpen ? "opacity-0 translate-y-12 blur-sm" : "opacity-100 translate-y-0 blur-0"}`}>
-                <h1 className="max-w-5xl text-center text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1] md:leading-[1.1]">
-                    Exceptional digital experiences for those who build with vision.
+                <h1 className="max-w-5xl flex flex-col items-center text-center text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1] md:leading-[1.1]">
+                    <span className="block text-[10px] md:text-xs text-gray-400 mb-6 md:mb-8 font-bold tracking-[0.3em] uppercase">Muhammed Rashid P P • Frontend Developer</span>
+                    <span>Exceptional digital experiences for those who build with vision.</span>
                 </h1>
             </div>
 
@@ -71,11 +75,11 @@ export default function Hero() {
                     </div>
 
                     <nav className="flex flex-col gap-1 md:gap-2 text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-10 md:mb-14">
-                        <a href="#" className="hover:text-gray-400 transition-colors w-fit">About</a>
-                        <a href="#" className="hover:text-gray-400 transition-colors w-fit">Collection</a>
-                        <a href="#" className="hover:text-gray-400 transition-colors w-fit">Projects</a>
-                        <a href="#" className="hover:text-gray-400 transition-colors w-fit">Approach</a>
-                        <a href="#" className="hover:text-gray-400 transition-colors w-fit">Contact</a>
+                        <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-gray-400 transition-colors w-fit">About</a>
+                        <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-gray-400 transition-colors w-fit">Collection</a>
+                        <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-gray-400 transition-colors w-fit">Projects</a>
+                        <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-gray-400 transition-colors w-fit">Approach</a>
+                        <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-gray-400 transition-colors w-fit">Contact</a>
                     </nav>
 
                     <div className="flex justify-between items-end gap-3 text-xs md:text-sm text-gray-300">
@@ -84,7 +88,7 @@ export default function Hero() {
                             <a href="#" className="hover:text-white transition-colors">Showroom</a>
                         </div>
                         <div className="flex flex-col items-end gap-1 md:gap-2 font-light">
-                            <a href="tel:02081567290" className="hover:text-white transition-colors">020 8156 7290</a>
+                            <a href="tel:02081567290" className="hover:text-white transition-colors">+</a>
                             <a href="mailto:sales@fluid.glass" className="hover:text-white transition-colors">sales@fluid.glass</a>
                         </div>
                     </div>

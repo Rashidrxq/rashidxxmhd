@@ -9,6 +9,10 @@ export default function CustomCursor() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.body.classList.add("hide-cursor");
+        }
+
         const handleMouseMove = (e: MouseEvent) => {
             setPosition({ x: e.clientX, y: e.clientY });
             if (!isVisible) setIsVisible(true);
@@ -36,6 +40,7 @@ export default function CustomCursor() {
         window.addEventListener("mouseenter", handleMouseEnter);
 
         return () => {
+            document.body.classList.remove("hide-cursor");
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseleave", handleMouseLeave);
             window.removeEventListener("mouseenter", handleMouseEnter);

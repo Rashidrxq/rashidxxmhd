@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
     return (
-        <section className="relative w-full bg-[#f4f4f2] text-[#111111] pt-32 md:pt-48 pb-12 px-6 md:px-12 flex flex-col items-center">
+        <section id="contact" className="relative w-full bg-[#f4f4f2] text-[#111111] pt-32 md:pt-48 pb-12 px-6 md:px-12 flex flex-col items-center">
             
             {/* Header Content */}
             <div className="w-full max-w-6xl flex flex-col items-start mb-24 md:mb-40">
@@ -67,7 +67,7 @@ export default function Contact() {
 
             {/* Bottom Footer Area */}
             <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center gap-6 mt-16 pt-8 border-t border-[#111111]/10 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
-                <p>© {new Date().getFullYear()} Rashid. All Rights Reserved.</p>
+                <p>© {new Date().getFullYear()} Muhammed Rashid P P. All Rights Reserved.</p>
                 <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     Available for freelance opportunities

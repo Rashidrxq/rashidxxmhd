@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 export default function Projects() {
     return (
-        <section className="relative w-full bg-[#111111] text-white py-32 md:py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
+        <section id="projects" className="relative w-full bg-[#111111] text-white py-32 md:py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
             
             {/* Minimalist Header */}
             <div className="w-full max-w-[1400px] flex flex-col items-start mb-20 md:mb-32">
@@ -54,10 +55,11 @@ export default function Projects() {
                         <div className="absolute top-1/2 left-[50%] md:left-[60%] lg:left-[55%] -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[45vw] lg:w-[35vw] aspect-[4/3] md:aspect-[16/10] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] z-10 pointer-events-none rounded-lg md:rounded-2xl overflow-hidden rotate-[-5deg] group-hover:rotate-[2deg] shadow-2xl">
                             {/* Overlay to dim the image slightly when first zooming in */}
                             <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-700 group-hover:bg-black/0"></div>
-                            <img 
+                            <Image 
                                 src={project.image} 
-                                alt={project.title} 
-                                className="w-full h-full object-cover scale-125 group-hover:scale-100 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]" 
+                                alt={`Muhammed Rashid P P Project - ${project.title}`} 
+                                fill
+                                className="object-cover scale-125 group-hover:scale-100 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]" 
                             />
                         </div>
                     </Link>

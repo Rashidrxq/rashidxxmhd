@@ -37,11 +37,11 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"
         }`}
     >
       <h1
-        className="text-2xl md:text-4xl font-bold tracking-[0.2em] text-[#ff0000] text-center px-4"
+        className="text-sm md:text-base lg:text-lg font-bold tracking-[0.2em] text-black text-center px-4"
         style={{ fontFamily: "'Petrov Sans', sans-serif" }}
       >
         {text}
