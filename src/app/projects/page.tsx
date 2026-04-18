@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import Image from "next/image";
 
 export default function ProjectsPage() {
     return (
@@ -37,10 +38,11 @@ export default function ProjectsPage() {
                     >
                         <Link href={`/projects/${project.id}`} className="relative aspect-[4/5] overflow-hidden bg-[#111] mb-8 cursor-pointer" data-cursor="VIEW">
                             <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-700" />
-                            <img 
+                            <Image 
+                                fill
                                 src={project.image} 
                                 alt={project.title} 
-                                className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                                className="object-cover scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                             />
                         </Link>
                         

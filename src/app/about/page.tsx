@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function AboutPage() {
     return (
@@ -49,7 +48,7 @@ export default function AboutPage() {
                     </div>
 
                     <h1 className="text-4xl md:text-7xl font-medium tracking-tight leading-[1.1] md:leading-[1.05] text-balance">
-                        I'm Rashid, a creative software developer who turns complex problems into elegant, beautifully engineered digital experiences.
+                        I&apos;m Rashid, a creative software developer who turns complex problems into elegant, beautifully engineered digital experiences.
                     </h1>
                 </div>
             </section>
@@ -70,7 +69,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="w-full md:w-5/12 text-sm md:text-base leading-relaxed text-gray-400">
-                            I architect systems that aren't just functional, but genuinely delightful to interact with. Using cutting-edge technologies like Next.js, React, and robust AI integrations, I take full ownership of the product lifecycle from concept to scalable deployment.
+                            I architect systems that aren&apos;t just functional, but genuinely delightful to interact with. Using cutting-edge technologies like Next.js, React, and robust AI integrations, I take full ownership of the product lifecycle from concept to scalable deployment.
                         </div>
                     </div>
 

@@ -2,6 +2,13 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import Contact from "@/components/Contact";
+import Image from "next/image";
+
+export function generateStaticParams() {
+    return projects.map((project) => ({
+        id: project.id,
+    }));
+}
 
 interface Props {
     params: Promise<{ id: string }>;
@@ -79,7 +86,7 @@ export default async function ProjectCaseStudy(props: Props) {
             {/* Feature Cover Image */}
             <section className="w-full px-6 md:px-16 pb-32">
                 <div className="w-full aspect-video relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <Image src={project.image} alt={project.title} fill className="object-cover" priority />
                 </div>
             </section>
 
@@ -112,7 +119,7 @@ export default async function ProjectCaseStudy(props: Props) {
             <section className="w-full px-6 md:px-16 pb-48 flex flex-col gap-10">
                 {project.gallery.map((img, idx) => (
                     <div key={idx} className="w-full aspect-video relative rounded-3xl overflow-hidden border border-white/5">
-                        <img src={img} alt={`${project.title} Screen ${idx + 1}`} className="w-full h-full object-cover" />
+                        <Image src={img} alt={`${project.title} Screen ${idx + 1}`} fill className="object-cover" />
                     </div>
                 ))}
             </section>

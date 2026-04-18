@@ -18,7 +18,7 @@ export default function About() {
                 className="max-w-[1000px] text-center space-y-8 md:space-y-12"
             >
                 <p className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.2] md:leading-[1.1] text-balance">
-                    I'm Muhammed Rashid P P, a Software & Frontend Developer building intelligent digital experiences. 
+                    I&apos;m Muhammed Rashid P P, a Software & Frontend Developer building intelligent digital experiences. 
                     Focused on AI and scalable architecture, I create systems that solve real problems 
                     with precision, simplicity, and impact.
                 </p>

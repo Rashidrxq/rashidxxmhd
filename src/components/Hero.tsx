@@ -55,7 +55,7 @@ export default function Hero() {
                         <path d="M9 10l3-3 3 3" />
                         <path d="M12 7v7a4 4 0 0 0 4 4h1" />
                     </svg>
-                    Let's Talk
+                    Let&apos;s Talk
                 </button>
             </header>
 

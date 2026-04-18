@@ -23,7 +23,7 @@ export default function AdminDashboard() {
             } else {
                 setStatus("error");
             }
-        } catch (error) {
+        } catch {
             setStatus("error");
         } finally {
             setIsLoading(false);

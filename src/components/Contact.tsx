@@ -19,7 +19,7 @@ export default function Contact() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="text-5xl md:text-7xl lg:text-[6rem] font-medium tracking-tight leading-[1.05] text-balance mb-16"
                 >
-                    Let's build something <br className="hidden lg:block"/>extraordinary together.
+                    Let&apos;s build something <br className="hidden lg:block"/>extraordinary together.
                 </motion.h2>
 
                 <div className="w-full h-[1px] bg-[#111111]/10 mb-16"></div>
