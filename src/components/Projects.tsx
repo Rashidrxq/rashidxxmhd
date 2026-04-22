@@ -8,14 +8,14 @@ import { projects } from "@/data/projects";
 export default function Projects() {
     return (
         <section id="projects" className="relative w-full bg-[#111111] text-white py-32 md:py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
-            
+
             {/* Minimalist Header */}
             <div className="w-full max-w-[1400px] flex flex-col items-start mb-20 md:mb-32">
                 <div className="flex items-center gap-3 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-8">
                     <span className="text-[8px]">◆</span>
                     <span>Selected Work</span>
                 </div>
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -29,13 +29,13 @@ export default function Projects() {
             {/* Elite Interactive List */}
             <div className="w-full max-w-[1400px] flex flex-col border-t border-white/10">
                 {projects.map((project, index) => (
-                    <Link 
-                        href={`/projects/${project.id}`} 
-                        key={project.id} 
+                    <Link
+                        href={`/projects/${project.id}`}
+                        key={project.id}
                         className="group relative w-full flex items-center justify-between py-12 md:py-20 border-b border-white/10 hover:pl-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                         data-cursor="VIEW"
                     >
-                        
+
                         {/* Massive Typography Title */}
                         <div className="flex items-start gap-4 md:gap-12 z-20 mix-blend-difference relative">
                             <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white/40 mt-3 md:mt-6 transition-colors duration-500 group-hover:text-white">
@@ -55,11 +55,11 @@ export default function Projects() {
                         <div className="absolute top-1/2 left-[50%] md:left-[60%] lg:left-[55%] -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[45vw] lg:w-[35vw] aspect-[4/3] md:aspect-[16/10] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] z-10 pointer-events-none rounded-lg md:rounded-2xl overflow-hidden rotate-[-5deg] group-hover:rotate-[2deg] shadow-2xl">
                             {/* Overlay to dim the image slightly when first zooming in */}
                             <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-700 group-hover:bg-black/0"></div>
-                            <Image 
-                                src={project.image} 
-                                alt={`Muhammed Rashid P P Project - ${project.title}`} 
+                            <Image
+                                src={project.image}
+                                alt={`Muhammed Rashid P P Project - ${project.title}`}
                                 fill
-                                className="object-cover scale-125 group-hover:scale-100 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]" 
+                                className="object-cover scale-125 group-hover:scale-100 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                             />
                         </div>
                     </Link>
@@ -83,7 +83,7 @@ export default function Projects() {
                     </span>
                 </Link>
             </div>
-            
+
         </section>
     );
 }

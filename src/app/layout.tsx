@@ -4,6 +4,7 @@ import "./globals.css";
 import LoaderWrapper from "@/components/LoaderWrapper";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -102,6 +103,7 @@ export default function RootLayout({
         <SmoothScroll>
           <LoaderWrapper />
           <CustomCursor />
+          <AudioPlayer />
           {children}
         </SmoothScroll>
       </body>

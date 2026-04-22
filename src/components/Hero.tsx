@@ -5,12 +5,23 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { login } from "@/app/actions/auth";
+import SplitText from "@/components/SplitText";
+import quotesData from "@/data/quotes.json";
 
 export default function Hero() {
     const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isAdminOpen, setIsAdminOpen] = useState(false);
+    const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+    const [currentQuote, setCurrentQuote] = useState<{ text: string; author: string } | null>(null);
+
+    const generateQuote = () => {
+        const randomQuote = quotesData[Math.floor(Math.random() * quotesData.length)];
+        setCurrentQuote(randomQuote);
+        setIsMenuOpen(false);
+        setIsQuoteOpen(true);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,12 +49,12 @@ export default function Hero() {
             {/* Top Header */}
             <header className="absolute top-0 left-0 w-full flex justify-between items-center px-6 py-8 md:px-12 z-20 text-white">
                 <Link href="/" className="hover:opacity-75 transition-opacity">
-                    <Image 
-                        src="/logo.png" 
-                        alt="Rashid Software Dev" 
-                        width={80} 
-                        height={80} 
-                        className="w-16 h-16 md:w-20 md:h-20 object-contain mix-blend-screen" 
+                    <Image
+                        src="/logo.png"
+                        alt="Rashid Software Dev"
+                        width={80}
+                        height={80}
+                        className="w-16 h-16 md:w-20 md:h-20 object-contain mix-blend-screen"
                     />
                 </Link>
 
@@ -103,7 +114,10 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    <button className="mt-10 md:mt-12 w-full py-4 bg-[#0a0a0a] hover:bg-[#1a1a1a] transition-colors flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] uppercase border border-white/5">
+                    <button 
+                        onClick={generateQuote}
+                        className="mt-10 md:mt-12 w-full py-4 bg-[#0a0a0a] hover:bg-[#1a1a1a] transition-colors flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] uppercase border border-white/5"
+                    >
                         <svg
                             width="14" height="14" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -137,7 +151,7 @@ export default function Hero() {
                     }`}>
 
                     {/* Logo / Icon (Admin Trigger) */}
-                    <div 
+                    <div
                         className="flex items-center justify-center cursor-pointer hover:opacity-75 transition-opacity"
                         onClick={() => setIsAdminOpen(true)}
                     >
@@ -168,13 +182,13 @@ export default function Hero() {
 
             {/* Secret Admin Login Modal */}
             <div className={`fixed inset-0 z-[60] flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${isAdminOpen ? "opacity-100 pointer-events-auto backdrop-blur-sm bg-[#050505]/95" : "opacity-0 pointer-events-none backdrop-blur-none bg-black/0"}`}>
-                
+
                 {/* Click outside to close */}
                 <div className="absolute inset-0" onClick={() => setIsAdminOpen(false)}></div>
-                
+
                 {/* Modal Container */}
                 <div className={`relative w-[90%] max-w-md bg-[#0a0a0a] border border-white/10 p-10 md:p-14 text-white shadow-2xl flex flex-col transform transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isAdminOpen ? "translate-y-0 scale-100" : "translate-y-24 scale-95"}`}>
-                    
+
                     <div className="flex flex-col gap-2 mb-10 text-center">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-white mb-2">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -183,13 +197,13 @@ export default function Hero() {
                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">Authorized Personnel Only</span>
                     </div>
 
-                    <form 
-                        className="flex flex-col gap-6" 
-                        onSubmit={async (e) => { 
-                            e.preventDefault(); 
+                    <form
+                        className="flex flex-col gap-6"
+                        onSubmit={async (e) => {
+                            e.preventDefault();
                             const formData = new FormData(e.currentTarget);
                             const res = await login(formData);
-                            
+
                             if (res.success) {
                                 setIsAdminOpen(false);
                                 router.push("/admin");
@@ -198,23 +212,23 @@ export default function Hero() {
                             }
                         }}
                     >
-                        
+
                         <div className="flex flex-col gap-2 relative">
                             <label className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Username</label>
-                            <input 
+                            <input
                                 name="username"
-                                type="text" 
-                                placeholder="Admin ID" 
+                                type="text"
+                                placeholder="Admin ID"
                                 className="w-full bg-[#111] border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-white/40 transition-colors"
                             />
                         </div>
 
                         <div className="flex flex-col gap-2 relative">
                             <label className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Security Key</label>
-                            <input 
+                            <input
                                 name="password"
-                                type="password" 
-                                placeholder="•••••••••" 
+                                type="password"
+                                placeholder="•••••••••"
                                 className="w-full bg-[#111] border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-white/40 transition-colors"
                             />
                         </div>
@@ -229,7 +243,7 @@ export default function Hero() {
                     </form>
 
                     {/* Close Button */}
-                    <button 
+                    <button
                         onClick={() => setIsAdminOpen(false)}
                         className="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors"
                     >
@@ -240,6 +254,58 @@ export default function Hero() {
                     </button>
                 </div>
             </div>
+
+            {/* Quote Modal Overlay */}
+            <div className={`fixed inset-0 z-[70] flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${isQuoteOpen ? "opacity-100 pointer-events-auto backdrop-blur-md bg-[#050505]/90" : "opacity-0 pointer-events-none backdrop-blur-none bg-black/0"}`}>
+                
+                {/* Click outside to close */}
+                <div className="absolute inset-0" onClick={() => setIsQuoteOpen(false)}></div>
+                
+                {/* Modal Container */}
+                <div className={`relative w-[90%] max-w-lg bg-[#111111] p-10 md:p-14 text-white shadow-2xl flex flex-col transform transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isQuoteOpen ? "translate-y-0 scale-100" : "translate-y-24 scale-95"}`}>
+                    
+                    <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-8 md:mb-12">
+                        Daily Inspiration
+                    </div>
+
+                    <div className="relative min-h-[160px] flex flex-col justify-center gap-8 mb-4">
+                        {currentQuote && (
+                            <>
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight leading-[1.2] text-white" key={currentQuote.text}>
+                                    <SplitText text={`"${currentQuote.text}"`} stagger={0.015} />
+                                </h2>
+                                <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-gray-400" key={currentQuote.author}>
+                                    — {currentQuote.author}
+                                </span>
+                            </>
+                        )}
+                    </div>
+
+                    <div className="flex flex-col md:flex-row gap-4 mt-8 md:mt-12 pt-8 border-t border-white/10">
+                        <button 
+                            onClick={generateQuote}
+                            className="w-full py-4 bg-white text-black hover:bg-gray-200 transition-colors flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] uppercase"
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                            </svg>
+                            Generate Another
+                        </button>
+                    </div>
+
+                    {/* Close Button */}
+                    <button 
+                        onClick={() => setIsQuoteOpen(false)}
+                        className="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
 
         </section>
     );

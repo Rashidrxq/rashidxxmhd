@@ -1,26 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
+import SplitText from "@/components/SplitText";
 
 export default function Contact() {
     return (
         <section id="contact" className="relative w-full bg-[#f4f4f2] text-[#111111] pt-32 md:pt-48 pb-12 px-6 md:px-12 flex flex-col items-center">
-            
+
             {/* Header Content */}
             <div className="w-full max-w-6xl flex flex-col items-start mb-24 md:mb-40">
                 <div className="flex items-center gap-3 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-500 mb-8">
                     <span className="text-[8px] text-[#111]">◆</span>
                     <span>Get in Touch</span>
                 </div>
-                
-                <motion.h2 
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+
+                <h2
                     className="text-5xl md:text-7xl lg:text-[6rem] font-medium tracking-tight leading-[1.05] text-balance mb-16"
                 >
-                    Let&apos;s build something <br className="hidden lg:block"/>extraordinary together.
-                </motion.h2>
+                    <SplitText text="Let's build something" /> <br className="hidden lg:block" />
+                    <SplitText text="extraordinary together." delay={0.2} />
+                </h2>
 
                 <div className="w-full h-[1px] bg-[#111111]/10 mb-16"></div>
 
@@ -33,7 +31,7 @@ export default function Contact() {
                                 muhammerashid12345@gmail.com
                             </a>
                         </div>
-                        
+
                         <div className="flex flex-col gap-2">
                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Phone & WhatsApp</span>
                             <a href="tel:+919745393044" className="text-2xl md:text-4xl font-medium tracking-tight hover:opacity-60 transition-opacity">
@@ -58,7 +56,7 @@ export default function Contact() {
                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Location</span>
                             <div className="flex flex-col gap-1 font-medium text-sm md:text-base text-gray-500">
                                 <p>Working globally.</p>
-                                <p>Currently based in <br/><span className="text-[#111]">India</span>.</p>
+                                <p>Currently based in <br /><span className="text-[#111]">India</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +71,7 @@ export default function Contact() {
                     Available for freelance opportunities
                 </div>
             </div>
-            
+
         </section>
     );
 }
