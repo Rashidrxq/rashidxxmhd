@@ -3,11 +3,63 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 import Contact from "@/components/Contact";
 import Image from "next/image";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
     return projects.map((project) => ({
         id: project.id,
     }));
+}
+
+// Dynamic metadata generation based on project data
+export async function generateMetadata(props: {
+    params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+    const params = await props.params;
+    const project = projects.find((p) => p.id === params.id);
+
+    if (!project) {
+        return {
+            title: "Project Not Found",
+        };
+    }
+
+    const url = `https://rashidxxmhd.vercel.app/projects/${project.id}`;
+
+    return {
+        title: `${project.title} | Case Study`,
+        description: project.description,
+        keywords: [
+            project.title,
+            project.category,
+            ...project.techStack,
+            "case study",
+            "project",
+        ],
+        openGraph: {
+            title: project.title,
+            description: project.description,
+            url,
+            type: "article",
+            images: [
+                {
+                    url: project.image,
+                    width: 1200,
+                    height: 630,
+                    alt: project.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: project.title,
+            description: project.description,
+            images: [project.image],
+        },
+        alternates: {
+            canonical: url,
+        },
+    };
 }
 
 interface Props {
@@ -24,6 +76,37 @@ export default async function ProjectCaseStudy(props: Props) {
 
     return (
         <main className="min-h-screen bg-[#111] text-white selection:bg-white selection:text-black pt-32">
+            {/* JSON-LD Schema for Project/Article */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        headline: project.title,
+                        description: project.description,
+                        image: project.image,
+                        datePublished: `${project.year}-01-01`,
+                        author: {
+                            "@type": "Person",
+                            name: "Muhammed Rashid P P",
+                            url: "https://rashidxxmhd.vercel.app",
+                        },
+                        publisher: {
+                            "@type": "Organization",
+                            name: "Muhammed Rashid Portfolio",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://rashidxxmhd.vercel.app/logo.png",
+                            },
+                        },
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": `https://rashidxxmhd.vercel.app/projects/${project.id}`,
+                        },
+                    }),
+                }}
+            />
             
             {/* Top Minimal Header */}
             <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-8 md:px-12 z-50 mix-blend-difference">

@@ -57,7 +57,7 @@ export default function Projects() {
                             <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-700 group-hover:bg-black/0"></div>
                             <Image
                                 src={project.image}
-                                alt={`Muhammed Rashid P P Project - ${project.title}`}
+                                alt={`${project.title} - ${project.category} project by Muhammed Rashid`}
                                 fill
                                 className="object-cover scale-125 group-hover:scale-100 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                             />

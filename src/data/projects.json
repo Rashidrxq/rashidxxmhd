@@ -7,7 +7,12 @@
         "image": "https://images.unsplash.com/photo-1518605363189-8dce282672e0?q=80&w=2940&auto=format&fit=crop",
         "year": "2024",
         "role": "Machine Learning Engineer",
-        "techStack": ["Python", "Scikit-Learn", "Pandas", "Full-Stack Backend"],
+        "techStack": [
+            "Python",
+            "Scikit-Learn",
+            "Pandas",
+            "Full-Stack Backend"
+        ],
         "challenge": "Sports prediction models typically suffer from high variance and data leakage, leading to inaccurate real-world forecasting. Existing data was unstructured and lacked sophisticated feature engineering like rolling performance metrics.",
         "solution": "Developed a robust machine learning pipeline implementing cumulative Elo ratings and advanced feature engineering. Completely eliminated data leakage by enforcing strict chronological data splitting, resulting in a highly accurate predictive scoring model mapped into a clean full-stack interface.",
         "gallery": [
@@ -23,7 +28,12 @@
         "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2944&auto=format&fit=crop",
         "year": "2023",
         "role": "Full-Stack Developer",
-        "techStack": ["Python", "NLP Libraries", "React", "Next.js"],
+        "techStack": [
+            "Python",
+            "NLP Libraries",
+            "React",
+            "Next.js"
+        ],
         "challenge": "Recruiters spend massive amounts of manual time scanning PDFs to find basic skill overlaps. Traditional Applicant Tracking Systems use rigid keyword matching that fails to understand the contextual meaning of candidate experience.",
         "solution": "Built a custom Natural Language Processing extraction engine to semantically map PDF content to job requirements. Wrapped this complex processing into a sleek, immediately accessible web dashboard that delivers split-second compatibility scores and actionable insights.",
         "gallery": [
@@ -39,12 +49,34 @@
         "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2940&auto=format&fit=crop",
         "year": "2023",
         "role": "Frontend Architect",
-        "techStack": ["JavaScript", "React", "Node.js", "Express"],
+        "techStack": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express"
+        ],
         "challenge": "Serious aspiring engineers lacked a centralized, high-performance portal to share curated notes and directly interact on tough numerical problems without bloated UI distractions.",
         "solution": "Architected a blisteringly fast React-based SPA that prioritizes information density and reading comfort. Integrated a scalable backend to handle thousands of concurrent community uploads, creating an uninterrupted flow and premium user experience for students.",
         "gallery": [
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+        ]
+    },
+    {
+        "id": "ID0007",
+        "title": "NOIREA",
+        "category": "E-COMMERCE",
+        "description": "NOIRÉA is a modern luxury fashion interface exploring the intersection of storytelling and commerce. Built with React and GSAP, it delivers an immersive, scroll-driven experience that transforms product discovery into a narrative journey. ",
+        "image": "https://noirae.vercel.app/",
+        "year": "2026",
+        "role": "MUHAMMED RASHID P P",
+        "techStack": [
+            "React"
+        ],
+        "challenge": "Your Noiréa project’s biggest challenge is balancing premium visual design with performance. Heavy animations (like GSAP effects, mouse tracking, and layered UI interactions) can quickly degrade page speed, especially on mid- to low-end devices. This directly impacts user experience and SEO rankings. A premium feel doesn’t come from maximum animation—it comes from smoothness, responsiveness, and intentional motion. You need to optimize rendering, reduce unnecessary effects, and ensure fast load times while keeping the aesthetic clean and controlled.\r\n\r\nAnother key issue is the lack of a strong product structure and backend system. Right now, Noiréa risks being a collection of visually appealing components rather than a fully functional product. Without a clear user flow, defined features (like product management, profiles, or admin control), and a solid backend using technologies like Node.js and MongoDB, the project won’t scale. You need to shift focus toward building a reliable system that manages data, authentication, and real user interactions.\r\n\r\nFinally, there’s a strategic challenge: prioritizing design over usability and growth. While a strong UI can attract attention, long-term success depends on functionality, mobile optimization, and discoverability. Many users—especially in mobile-heavy markets—will leave if the app is slow or confusing. Incorporating SEO tools like Next SEO and building a clear user journey (what users do, why they stay, and how they convert) will transform Noiréa from a design concept into a real, scalable product.",
+        "solution": "1. Fix Performance Without Killing the Premium Feel\r\n\r\nYou don’t need to remove animations—you need to control them intelligently. Limit GSAP usage to hero sections and key interactions only. Replace continuous mouse tracking with lighter effects or throttle them using requestAnimationFrame. Optimize all images using Next.js <Image />, compress assets, and lazy-load anything below the fold. Your goal is simple:\r\n\r\nFast first load + smooth interactions = premium experience.\r\n\r\nAlso test on low-end devices. If it doesn’t run smoothly there, it’s not production-ready.\r\n\r\n2. Build a Proper Product System (Not Just UI)\r\n\r\nDefine structure and backend clearly. Start implementing a real system using Node.js and MongoDB:\r\n\r\nAuthentication (login/signup, JWT)\r\nProduct system (CRUD from admin panel)\r\nUser profiles (basic data + images)\r\nAdmin dashboard (manage products/users)\r\n\r\nBreak your app into pages:\r\n\r\nHome → Explore → Product → Profile → Admin\r\n\r\nThis transforms Noiréa from “cool UI” into a functional platform.\r\n\r\n3. Optimize for Mobile + SEO (Critical for Growth)\r\n\r\nMost of your users will come from mobile, so redesign interactions:\r\n\r\nReplace hover → tap\r\nReduce animation intensity on small screens\r\nEnsure responsive layout is clean and fast\r\n\r\nThen implement SEO properly using Next SEO:\r\n\r\nUnique title + description per page\r\nAdd sitemap (next-sitemap)\r\nUse proper headings (H1, H2)\r\nOptimize loading speed (Core Web Vitals)\r\n\r\nThis ensures your app is not just usable—but discoverable.",
+        "gallery": [
+            "https://noirae.vercel.app/"
         ]
     }
 ]

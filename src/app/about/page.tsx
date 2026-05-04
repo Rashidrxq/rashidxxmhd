@@ -1,4 +1,37 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About Me | Frontend Developer | Muhammed Rashid P P",
+  description:
+    "Learn about Muhammed Rashid P P's journey, expertise, and approach to frontend development. Passionate about creating elegant digital experiences with React and Next.js.",
+  keywords: [
+    "about",
+    "frontend developer",
+    "experience",
+    "skills",
+    "approach",
+    "biography",
+  ],
+  openGraph: {
+    title: "About Muhammed Rashid P P",
+    description:
+      "Discover the story and expertise of a passionate frontend developer from Kerala, India.",
+    url: "https://rashidxxmhd.vercel.app/about",
+    type: "profile",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "About Muhammed Rashid",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://rashidxxmhd.vercel.app/about",
+  },
+};
 
 export default function AboutPage() {
     return (

@@ -38,7 +38,7 @@ export default function Hero() {
             <div className={`absolute inset-0 z-0 bg-black transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMenuOpen ? "scale-105" : "scale-100"}`}>
                 <Image
                     src="https://i.pinimg.com/736x/2e/2e/93/2e2e93eef3e68b0b876169cf709584e1.jpg"
-                    alt="Muhammed Rashid P P - Frontend Developer Background"
+                    alt="Modern minimalist design background - Frontend Developer Portfolio"
                     fill
                     priority
                     className="object-cover opacity-60"
@@ -51,7 +51,7 @@ export default function Hero() {
                 <Link href="/" className="hover:opacity-75 transition-opacity">
                     <Image
                         src="/logo.png"
-                        alt="Rashid Software Dev"
+                        alt="Muhammed Rashid - Frontend Developer Logo"
                         width={80}
                         height={80}
                         className="w-16 h-16 md:w-20 md:h-20 object-contain mix-blend-screen"

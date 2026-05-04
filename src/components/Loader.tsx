@@ -37,7 +37,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-700 ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
     >
       <h1
