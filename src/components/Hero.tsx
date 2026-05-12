@@ -16,6 +16,14 @@ export default function Hero() {
     const [isQuoteOpen, setIsQuoteOpen] = useState(false);
     const [currentQuote, setCurrentQuote] = useState<{ text: string; author: string } | null>(null);
 
+    const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setIsMenuOpen(false);
+    };
+
     const generateQuote = () => {
         const randomQuote = quotesData[Math.floor(Math.random() * quotesData.length)];
         setCurrentQuote(randomQuote);
@@ -58,7 +66,11 @@ export default function Hero() {
                     />
                 </Link>
 
-                <button className={`flex items-center gap-3 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase hover:opacity-75 transition-all duration-700 ${isMenuOpen ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"}`}>
+                <button
+                    type="button"
+                    onClick={() => scrollToSection("contact")}
+                    className={`flex items-center gap-3 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase hover:opacity-75 transition-all duration-700 ${isMenuOpen ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"}`}
+                >
                     <svg
                         width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -105,8 +117,20 @@ export default function Hero() {
 
                     <div className="flex justify-between items-end gap-3 text-xs md:text-sm text-gray-300">
                         <div className="flex flex-col gap-1 md:gap-2">
-                            <a href="#" className="hover:text-white transition-colors">News</a>
-                            <a href="#" className="hover:text-white transition-colors">Showroom</a>
+                            <button
+                                type="button"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-left hover:text-white transition-colors"
+                            >
+                                News
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-left hover:text-white transition-colors"
+                            >
+                                Showroom
+                            </button>
                         </div>
                         <div className="flex flex-col items-end gap-1 md:gap-2 font-light">
                             <a href="tel:+919745393044" className="hover:text-white transition-colors">+91 97453 93044</a>
