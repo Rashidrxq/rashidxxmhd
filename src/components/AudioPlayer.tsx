@@ -19,6 +19,7 @@ export default function AudioPlayer() {
                 .then(() => {
                     setIsPlaying(true);
                     setHasInteracted(true);
+                    setShowNews(true);
                 })
                 .catch(() => {
                     // Autoplay blocked (expected behavior)
@@ -35,17 +36,24 @@ export default function AudioPlayer() {
         };
     }, []);
 
+    const [showNews, setShowNews] = useState(false);
+
     const togglePlayback = () => {
         setHasInteracted(true);
+
         if (audioRef.current) {
             if (isPlaying) {
                 audioRef.current.pause();
                 setIsPlaying(false);
+                setShowNews(false);
             } else {
                 const playPromise = audioRef.current.play();
                 if (playPromise !== undefined) {
                     playPromise
-                        .then(() => setIsPlaying(true))
+                        .then(() => {
+                            setIsPlaying(true);
+                            setShowNews(true);
+                        })
                         .catch((error) => {
                             console.error("Audio playback error:", error);
                             setIsPlaying(false);
@@ -56,8 +64,22 @@ export default function AudioPlayer() {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-[100] flex items-center gap-4">
-            
+        <div className="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-[100] flex flex-col items-end gap-4">
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={showNews ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                transition={{ duration: 0.25 }}
+                className={`pointer-events-none max-w-[260px] rounded-3xl border border-white/10 bg-[#0f0f0f]/95 p-4 text-xs text-white shadow-[0_25px_80px_rgba(0,0,0,0.25)] backdrop-blur-md ${showNews ? "pointer-events-auto" : "hidden"}`}
+                aria-live="polite"
+            >
+                <p className="mb-3 text-[0.72rem] uppercase tracking-[0.3em] text-gray-400">News</p>
+                <ul className="space-y-2 text-[0.78rem] leading-5 text-gray-100">
+                    <li>👋 Building my portfolio and UX-first interfaces.</li>
+                    <li>💡 Currently exploring animation, motion design, and API-driven projects.</li>
+                    <li>🚀 Open to collaboration on React/Next.js builds.</li>
+                </ul>
+            </motion.div>
+
             <motion.div 
                 className={`text-[10px] uppercase font-bold tracking-[0.2em] transition-opacity duration-500 overflow-hidden ${hasInteracted ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100'}`}
             >
