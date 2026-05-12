@@ -6,11 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { login } from "@/app/actions/auth";
 import SplitText from "@/components/SplitText";
+import NewsBox from "@/components/NewsBox";
 import quotesData from "@/data/quotes.json";
 
 export default function Hero() {
     const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isNewsOpen, setIsNewsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isAdminOpen, setIsAdminOpen] = useState(false);
     const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -43,6 +45,7 @@ export default function Hero() {
     return (
         <section className="relative w-full h-screen overflow-hidden font-sans bg-black">
             {/* Background Image & Overlay */}
+            <NewsBox visible={isNewsOpen} onClose={() => setIsNewsOpen(false)} />
             <div className={`absolute inset-0 z-0 bg-black transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMenuOpen ? "scale-105" : "scale-100"}`}>
                 <Image
                     src="https://i.pinimg.com/736x/2e/2e/93/2e2e93eef3e68b0b876169cf709584e1.jpg"
@@ -119,7 +122,10 @@ export default function Hero() {
                         <div className="flex flex-col gap-1 md:gap-2">
                             <button
                                 type="button"
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setIsNewsOpen(true);
+                                }}
                                 className="text-left hover:text-white transition-colors"
                             >
                                 News

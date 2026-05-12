@@ -1,12 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import NewsBox from "@/components/NewsBox";
 
 export default function AudioPlayer() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasInteracted, setHasInteracted] = useState(false);
-    const [showNews, setShowNews] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     // Initialize audio only on client side to avoid hydration errors
@@ -21,7 +19,6 @@ export default function AudioPlayer() {
                 .then(() => {
                     setIsPlaying(true);
                     setHasInteracted(true);
-                    setShowNews(true);
                 })
                 .catch(() => {
                     // Autoplay blocked (expected behavior)
@@ -45,14 +42,12 @@ export default function AudioPlayer() {
             if (isPlaying) {
                 audioRef.current.pause();
                 setIsPlaying(false);
-                setShowNews(false);
             } else {
                 const playPromise = audioRef.current.play();
                 if (playPromise !== undefined) {
                     playPromise
                         .then(() => {
                             setIsPlaying(true);
-                            setShowNews(true);
                         })
                         .catch((error) => {
                             console.error("Audio playback error:", error);
@@ -65,7 +60,6 @@ export default function AudioPlayer() {
 
     return (
         <div className="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-[100] flex flex-col items-end gap-4">
-            <NewsBox visible={showNews} onClose={() => setShowNews(false)} />
 
             <motion.div 
                 className={`text-[10px] uppercase font-bold tracking-[0.2em] transition-opacity duration-500 overflow-hidden ${hasInteracted ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100'}`}
