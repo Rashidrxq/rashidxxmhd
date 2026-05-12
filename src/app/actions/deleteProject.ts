@@ -1,7 +1,6 @@
 "use server";
 
-import fs from "fs";
-import path from "path";
+import { getProjects, saveProjects } from "@/lib/projectsStorage";
 
 export async function deleteProject(id: string) {
     try {
@@ -9,19 +8,17 @@ export async function deleteProject(id: string) {
             throw new Error("Project id is required for deletion.");
         }
 
-        const filePath = path.join(process.cwd(), "src", "data", "projects.json");
-        const fileData = fs.readFileSync(filePath, "utf-8");
-        const projectsArray = JSON.parse(fileData);
+        const projectsArray = await getProjects();
+        const filteredProjects = projectsArray.filter((project) => project.id !== id);
 
-        const filteredProjects = projectsArray.filter((project: any) => project.id !== id);
         if (filteredProjects.length === projectsArray.length) {
             throw new Error("Project not found for deletion.");
         }
 
-        fs.writeFileSync(filePath, JSON.stringify(filteredProjects, null, 4));
+        await saveProjects(filteredProjects, `Delete project ${id}`);
         return { success: true };
     } catch (error) {
         console.error("Failed to delete project:", error);
-        return { success: false, error: "Failed to delete project. Ensure local filesystem permissions." };
+        return { success: false, error: "Failed to delete project. Ensure storage is configured." };
     }
 }

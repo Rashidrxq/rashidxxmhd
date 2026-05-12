@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/projectsStorage";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://rashidxxmhd.vercel.app";
+  const projects = await getProjects();
 
   // Static pages with prioritization for SEO
   const staticPages: MetadataRoute.Sitemap = [
@@ -26,7 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic project pages - critical for SEO
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.id}`,
     lastModified: new Date(),

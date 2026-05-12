@@ -1,7 +1,6 @@
 "use server";
 
-import fs from "fs";
-import path from "path";
+import { getProjects, saveProjects, type Project } from "@/lib/projectsStorage";
 
 export async function updateProject(formData: FormData) {
     try {
@@ -24,16 +23,13 @@ export async function updateProject(formData: FormData) {
             throw new Error("Original project id is required for updates.");
         }
 
-        const filePath = path.join(process.cwd(), "src", "data", "projects.json");
-        const fileData = fs.readFileSync(filePath, "utf-8");
-        const projectsArray = JSON.parse(fileData);
-
-        const projectIndex = projectsArray.findIndex((project: any) => project.id === originalId);
+        const projectsArray = await getProjects();
+        const projectIndex = projectsArray.findIndex((project) => project.id === originalId);
         if (projectIndex === -1) {
             throw new Error("Project not found for update.");
         }
 
-        const updatedProject = {
+        const updatedProject: Project = {
             id,
             title,
             category,
@@ -48,11 +44,11 @@ export async function updateProject(formData: FormData) {
         };
 
         projectsArray[projectIndex] = updatedProject;
-        fs.writeFileSync(filePath, JSON.stringify(projectsArray, null, 4));
+        await saveProjects(projectsArray, `Update project ${title}`);
 
         return { success: true };
     } catch (error) {
         console.error("Failed to update project:", error);
-        return { success: false, error: "Failed to update project. Ensure local filesystem permissions." };
+        return { success: false, error: "Failed to update project. Ensure storage is configured." };
     }
 }

@@ -177,7 +177,7 @@ export default function AdminDashboard() {
             <section className="max-w-4xl mx-auto px-6 w-full mt-10 md:mt-20">
                 <div className="flex flex-col gap-4 mb-20 border-b border-white/10 pb-16">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">Command Center</h1>
-                    <p className="text-gray-400 font-medium tracking-wide">Inject new case studies securely into the local JSON database. Changes are instantly reflected across the public interface.</p>
+                    <p className="text-gray-400 font-medium tracking-wide">Inject new case studies securely into the project storage layer. In production, changes are persisted through GitHub-backed storage when configured.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-10">

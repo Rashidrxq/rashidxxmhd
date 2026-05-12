@@ -3,9 +3,22 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/data/projects";
 
-export default function Projects() {
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  year: string;
+  role: string;
+  techStack: string[];
+  challenge: string;
+  solution: string;
+  gallery: string[];
+}
+
+export default function Projects({ projects }: { projects: Project[] }) {
     return (
         <section id="projects" className="relative w-full bg-[#111111] text-white py-32 md:py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
 

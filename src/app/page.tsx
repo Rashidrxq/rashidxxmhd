@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import { getProjects } from "@/lib/projectsStorage";
 
 export const metadata: Metadata = {
   title: "Frontend Developer | React & Next.js | Muhammed Rashid P P",
@@ -39,13 +40,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <main className="w-full">
       <Hero />
       <About />
       <Marquee />
-      <Projects />
+      <Projects projects={projects} />
       <Contact />
     </main>
   );

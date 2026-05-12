@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projects } from "@/data/projects";
-import Image from "next/image";
 import ProjectsGrid from "@/components/ProjectsGrid";
+import { getProjects } from "@/lib/projectsStorage";
 
 // Server-side metadata generation for SEO
 export const metadata: Metadata = {
@@ -32,7 +31,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+    const projects = await getProjects();
+
     return (
         <main className="min-h-screen bg-[#0a0a0a] text-white selection:bg-white selection:text-black pt-32 pb-48 px-6 md:px-12">
             {/* Header Section */}

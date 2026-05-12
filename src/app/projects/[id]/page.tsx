@@ -1,22 +1,15 @@
 import { notFound } from "next/navigation";
-import { projects } from "@/data/projects";
 import Link from "next/link";
 import Contact from "@/components/Contact";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { getProjectById } from "@/lib/projectsStorage";
 
-export function generateStaticParams() {
-    return projects.map((project) => ({
-        id: project.id,
-    }));
-}
+export const dynamic = "force-dynamic";
 
 // Dynamic metadata generation based on project data
-export async function generateMetadata(props: {
-    params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-    const params = await props.params;
-    const project = projects.find((p) => p.id === params.id);
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+    const project = await getProjectById(params.id);
 
     if (!project) {
         return {
@@ -63,14 +56,11 @@ export async function generateMetadata(props: {
 }
 
 interface Props {
-    params: Promise<{ id: string }>;
+    params: { id: string };
 }
 
-export default async function ProjectCaseStudy(props: Props) {
-    // Next.js 14+ requires awaiting dynamic params
-    const params = await props.params;
-
-    const project = projects.find(p => p.id === params.id);
+export default async function ProjectCaseStudy({ params }: Props) {
+    const project = await getProjectById(params.id);
 
     if (!project) return notFound();
 
